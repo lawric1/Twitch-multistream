@@ -2,7 +2,9 @@ import './Stream.css';
 
 
 export function Stream(props) {
-    const url = "https://player.twitch.tv/?channel=" + props.channel + "&playsinline=true&parent=localhost&player=popup&controls=false&autoplay=true&muted=false";
+    const prefix = "https://player.twitch.tv/?channel="
+    const parameters = "&playsinline=true&parent=localhost&player=popup&controls=false&autoplay=true&muted=false";
+    const url = prefix + props.channel + parameters
 
     return (
         <>
@@ -11,7 +13,7 @@ export function Stream(props) {
                 src={url}
                 width="320"
                 height="auto"
-                allowfullscreen=""
+                allowfullscreen="true"
                 allow="autoplay; fullscreen" 
                 frameBorder="0"
                 scrolling="no"> 

@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body, html {
+body, html, #root {
     margin: 0;
     padding: 0;
 
@@ -10,4 +10,8 @@ body, html {
 
     background-color: #2b2030;
     color: rgb(182, 198, 206);
+}
+
+.container {
+    display: flex;
 }

@@ -1,8 +1,10 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
+
+    width: auto;
 }
 
 .wrapper > * {
-    flex: 1 1 auto;
+    flex: 1;
 }
