@@ -13,7 +13,6 @@ export function Stream(props) {
                 src={url}
                 width="320"
                 height="auto"
-                allowfullscreen="true"
                 allow="autoplay; fullscreen" 
                 frameBorder="0"
                 scrolling="no"> 
