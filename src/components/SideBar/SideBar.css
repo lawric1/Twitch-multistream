@@ -4,10 +4,46 @@
     flex-direction: column;
     
     width: 120px;
+
+    background-color: #262030;
+
+    box-shadow: 6px 2px 2px 4px rgba(0, 0, 0, 0.2);;
 }
 
 .avatar {
     margin-top: 26px ;
     width: 48px; height: 48px;
     border-radius: 50%;
+}
+
+.gg-add {
+    margin-top: 26px ;
+    width: 48px; height: 48px;
+
+    color: #b6c6ce;
+
+    outline: 2px solid #b6c6ce;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+
+.gg-add::after {
+    width: 4px;
+    height: 20px;
+
+    left: 20px; top: 12px;
+}
+
+.gg-add::before {
+    width: 20px;
+    height: 4px;
+
+    left: 12px; top: 20px;
+}
+
+.gg-add:hover {
+    color: white;
+
+    outline: 3px solid white;
 }

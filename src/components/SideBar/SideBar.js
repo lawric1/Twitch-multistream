@@ -28,6 +28,6 @@ export function Button(props) {
     const openAddScreen = useContext(ChannelScreenContext);
 
     return (
-        <img onClick={openAddScreen} alt="Add Stream button" className='avatar' src="https://upload.wikimedia.org/wikipedia/commons/8/87/Bluesquare.png"></img>
+        <i onClick={openAddScreen} className="gg-add"></i>
     )
 }

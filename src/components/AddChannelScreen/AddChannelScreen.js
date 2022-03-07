@@ -2,11 +2,6 @@ import { useState } from 'react';
 
 import './AddChannelScreen.css';
 
-// export function Button(props) {
-//     return (
-//         <img onClick={props.callback} alt="Add Stream button" className='avatar' src="https://upload.wikimedia.org/wikipedia/commons/8/87/Bluesquare.png"></img>
-//     )
-// }
 
 export function AddChannelScreen(props) {
     const [input, setInput] = useState("");
@@ -17,20 +12,29 @@ export function AddChannelScreen(props) {
 
 
     function sendInput(event) {
-        props.callback(input);
+        props.addChannelCallback(input);
         setInput("");
         event.preventDefault();
     }
     
+
+    function close(event) {
+        props.closeScreenCallback();
+        event.preventDefault();
+    }
     
+
     if (!props.visible) { return <></> }
 
     return (
-        <div className='overlay'>
-            <form onSubmit={sendInput}>
-                <input onChange={updateInput} className="search" type="text" value={input} placeholder="ex: buddha" spellCheck="false"/>
-                <input className="button" type="submit" value="Add"/>
-            </form>
-        </div>
+        <>
+            <div className='overlay'>
+                <form onSubmit={sendInput}>
+                    <input onChange={updateInput} className="search" type="text" value={input} placeholder="ex: buddha" spellCheck="false"/>
+                    <input className="submit" type="submit" value="Add"/>
+                </form>
+            </div>
+            <button className='close' onClick={close}>Close</button>
+        </>
     );
 }

@@ -27,7 +27,8 @@ function App() {
             return
         }
 
-        setIsVisible(false);
+        closeAddChannelScreen();
+
         const profilePic = await getChannelProfilePicture(channel);
         if (!profilePic) { return }
 
@@ -58,16 +59,21 @@ function App() {
     }   
 
 
-    function showAddChannelScreen() {
+    function openAddChannelScreen() {
         setIsVisible(true);
     }
     
+
+    function closeAddChannelScreen() {
+        setIsVisible(false);
+    }
     
+
     return (
         <>
-            <AddChannelScreen visible={isVisible} callback={addChannel}/>
+            <AddChannelScreen visible={isVisible} addChannelCallback={addChannel} closeScreenCallback={closeAddChannelScreen} />
             <div className='container'>
-                <ChannelScreenContext.Provider value={showAddChannelScreen}>
+                <ChannelScreenContext.Provider value={openAddChannelScreen}>
                     <SideBar channels={channels}/>
                 </ChannelScreenContext.Provider>
 
