@@ -8,7 +8,7 @@ import { SideBar } from './components/SideBar/SideBar';
 import './App.css';
 
 
-const ChannelScreenContext = createContext();
+const Callbacks = createContext();
 
 function App() {
     const [isVisible, setIsVisible] = useState(false);
@@ -33,6 +33,7 @@ function App() {
         if (!profilePic) { return }
 
         const newChannel = {
+            id: new Date(),
             name: channel,
             profilePic: profilePic
         }
@@ -59,10 +60,16 @@ function App() {
     }   
 
 
+    function removeStream(id) {
+        const updatedChannels = channels.filter((channel) => channel.id !== id);
+        setChannels(updatedChannels);
+    }
+
+
     function openAddChannelScreen() {
         setIsVisible(true);
     }
-    
+
 
     function closeAddChannelScreen() {
         setIsVisible(false);
@@ -73,9 +80,9 @@ function App() {
         <>
             <AddChannelScreen visible={isVisible} addChannelCallback={addChannel} closeScreenCallback={closeAddChannelScreen} />
             <div className='container'>
-                <ChannelScreenContext.Provider value={openAddChannelScreen}>
+                <Callbacks.Provider value={{openAddChannelScreen, removeStream}}>
                     <SideBar channels={channels}/>
-                </ChannelScreenContext.Provider>
+                </Callbacks.Provider>
 
                 <StreamContainer>
                     {channels.map((channel) => {
@@ -89,10 +96,9 @@ function App() {
 
 
 export default App;
-export { ChannelScreenContext };
+export { Callbacks };
 
 // Better number for width
-// Close AddChannelScreen
 // mute and remove button
 // Max channels?
 // Css design

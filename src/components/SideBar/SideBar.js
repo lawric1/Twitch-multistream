@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChannelScreenContext } from '../../App.js'
+import { Callbacks } from '../../App.js'
 
 import './SideBar.css';
 
@@ -9,25 +9,39 @@ export function SideBar(props) {
     return (
         <div className='sidebar'>
             {channels.map((channel) => {
-                return <Avatar picture={channel.profilePic} key={channel.name + 'picture'}/>
+                return <Avatar channel={channel} key={channel.name + 'picture'}/>
             })}
-            <Button />
+            <AddButton />
         </div>
     );
 }
 
 
 export function Avatar(props) {
+        const callbacks = useContext(Callbacks);
+        
+        const profilePicture = props.channel.profilePic;
+        const id = props.channel.id;
+
+        function remove() {
+            callbacks.removeStream(id)
+        }
+
+
         return (
-            <img alt="Channel avatar" className='avatar' src={props.picture}></img>
+            <div className='avatarContainer'>
+                <span>V</span>
+                <img alt="Channel avatar" className='avatar' src={profilePicture}></img>
+                <span onClick={remove}>R</span>
+            </div>
         )
 }
 
 
-export function Button(props) {
-    const openAddScreen = useContext(ChannelScreenContext);
+export function AddButton() {
+    const callbacks = useContext(Callbacks);
 
     return (
-        <i onClick={openAddScreen} className="gg-add"></i>
+        <i onClick={callbacks.openAddChannelScreen} className="gg-add"></i>
     )
 }

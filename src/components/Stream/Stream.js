@@ -1,10 +1,7 @@
-import './Stream.css';
-
-
 export function Stream(props) {
-    const prefix = "https://player.twitch.tv/?channel="
+    const prefix = "https://player.twitch.tv/?channel=";
     const parameters = "&playsinline=true&parent=localhost&player=popup&controls=false&autoplay=true&muted=false";
-    const url = prefix + props.channel + parameters
+    const url = prefix + props.channel + parameters;
 
     return (
         <>

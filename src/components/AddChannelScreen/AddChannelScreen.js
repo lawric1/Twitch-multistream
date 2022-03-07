@@ -16,13 +16,13 @@ export function AddChannelScreen(props) {
         setInput("");
         event.preventDefault();
     }
-    
+
 
     function close(event) {
         props.closeScreenCallback();
         event.preventDefault();
     }
-    
+
 
     if (!props.visible) { return <></> }
 
