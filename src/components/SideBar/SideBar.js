@@ -3,6 +3,7 @@ import { Callbacks } from '../../App.js'
 
 import './SideBar.css';
 
+
 export function SideBar(props) {
     const channels = props.channels;
 
@@ -27,12 +28,15 @@ export function Avatar(props) {
             callbacks.removeStream(id)
         }
 
+        function toggleAudio() {
+            callbacks.toggleStreamAudio(id)
+        }
 
         return (
             <div className='avatarContainer'>
-                <span>V</span>
-                <img alt="Channel avatar" className='avatar' src={profilePicture}></img>
-                <span onClick={remove}>R</span>
+                <i onClick={toggleAudio} className="gg-volume" style={{color: props.channel.muted ? '#544868' : 'white' }}></i>
+                <img alt="Channel avatar" className='avatar' src={profilePicture} />
+                <i onClick={remove} className="gg-trash"></i>
             </div>
         )
 }

@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     
-    width: 120px;
+    width: 136px;
 
     background-color: #262030;
 
@@ -21,9 +21,30 @@
 }
 
 .avatar {
+    margin: 0 -4px 0 4px;
     width: 48px; height: 48px;
+
     border-radius: 50%;
 }
+
+.gg-volume {
+    color: #544868
+}
+
+.gg-volume:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.gg-trash {
+    color: #5e4a4a
+}
+
+.gg-trash:hover {
+    cursor: pointer;
+    color: #a44444;
+}
+
 
 .gg-add {
     margin-top: 16px;
@@ -56,3 +77,4 @@
 
     outline: 3px solid white;
 }
+

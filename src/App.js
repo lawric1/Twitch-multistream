@@ -35,7 +35,8 @@ function App() {
         const newChannel = {
             id: new Date(),
             name: channel,
-            profilePic: profilePic
+            profilePic: profilePic,
+            muted: false
         }
     
         setChannels(channels =>
@@ -65,6 +66,18 @@ function App() {
         setChannels(updatedChannels);
     }
 
+    function toggleStreamAudio(id, isMuted) {
+        const updatedChannels = channels.map((channel) => {
+            if (channel.id === id) {
+                channel.muted = !channel.muted
+            }
+            return channel
+        });
+
+        setChannels(updatedChannels);
+        console.log(channels);
+    }
+
 
     function openAddChannelScreen() {
         setIsVisible(true);
@@ -80,13 +93,13 @@ function App() {
         <>
             <AddChannelScreen visible={isVisible} addChannelCallback={addChannel} closeScreenCallback={closeAddChannelScreen} />
             <div className='container'>
-                <Callbacks.Provider value={{openAddChannelScreen, removeStream}}>
+                <Callbacks.Provider value={{openAddChannelScreen, removeStream, toggleStreamAudio}}>
                     <SideBar channels={channels}/>
                 </Callbacks.Provider>
 
                 <StreamContainer>
                     {channels.map((channel) => {
-                        return <Stream channel={channel.name} key={channel.name} />
+                        return <Stream channel={channel} key={channel.name} />
                     })}
                 </StreamContainer>
             </div>
@@ -100,7 +113,10 @@ export { Callbacks };
 
 // Better number for width
 // mute and remove button
+// Toggle controls
+// "Channel don't exist" in AddChannelScreen
 // Max channels?
 // Css design
 // Comments
+// Update readme
 // Deploy
