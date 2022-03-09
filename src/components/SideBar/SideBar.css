@@ -13,7 +13,7 @@
 
 .avatarContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     width: 100%;
@@ -26,7 +26,7 @@
 
     border-radius: 50%;
 }
-
+/* 
 .gg-volume {
     color: #544868
 }
@@ -34,7 +34,7 @@
 .gg-volume:hover {
     cursor: pointer;
     color: white;
-}
+} */
 
 .gg-trash {
     color: #5e4a4a

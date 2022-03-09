@@ -28,13 +28,12 @@ export function Avatar(props) {
             callbacks.removeStream(id)
         }
 
-        function toggleAudio() {
-            callbacks.toggleStreamAudio(id)
-        }
+        // function toggleAudio() {
+        //     callbacks.toggleStreamAudio(id)
+        // }
 
         return (
             <div className='avatarContainer'>
-                <i onClick={toggleAudio} className="gg-volume" style={{color: props.channel.muted ? '#544868' : 'white' }}></i>
                 <img alt="Channel avatar" className='avatar' src={profilePicture} />
                 <i onClick={remove} className="gg-trash"></i>
             </div>

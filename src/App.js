@@ -11,8 +11,8 @@ import './App.css';
 const Callbacks = createContext();
 
 function App() {
-    const [isVisible, setIsVisible] = useState(false);
-    const [channels, setChannels] = useState([]);
+    const [isVisible, setIsVisible] = useState(false); // Used to show Add Channel Screen
+    const [channels, setChannels] = useState([]); // Used to send data and control the amount of streams displayed
     
     const token = 'Bearer ' + process.env.REACT_APP_API_TOKEN;
     const clientID = process.env.REACT_APP_API_CLIENTID;
@@ -36,7 +36,8 @@ function App() {
             id: new Date(),
             name: channel,
             profilePic: profilePic,
-            muted: false
+            muted: false,
+            showControls: true
         }
     
         setChannels(channels =>
@@ -66,17 +67,26 @@ function App() {
         setChannels(updatedChannels);
     }
 
-    function toggleStreamAudio(id, isMuted) {
-        const updatedChannels = channels.map((channel) => {
-            if (channel.id === id) {
-                channel.muted = !channel.muted
-            }
-            return channel
-        });
+    // function toggleStreamAudio(id, isMuted) {
+    //     const updatedChannels = channels.map((channel) => {
+    //         if (channel.id === id) {
+    //             channel.muted = !channel.muted
+    //         }
+    //         return channel
+    //     });
 
-        setChannels(updatedChannels);
-        console.log(channels);
-    }
+    //     setChannels(updatedChannels);
+    //     console.log(channels);
+    // }
+
+    // function toggleControls() {
+    //     const updatedChannels = channels.map((channel) => {
+    //         channel.showControls = !channel.showControls
+    //         return channel
+    //     })
+
+    //     setChannels(updatedChannels);
+    // }
 
 
     function openAddChannelScreen() {
@@ -92,8 +102,9 @@ function App() {
     return (
         <>
             <AddChannelScreen visible={isVisible} addChannelCallback={addChannel} closeScreenCallback={closeAddChannelScreen} />
+            {/* <div onClick={toggleControls} className='settingsToggle'>Toggle Controls</div> */}
             <div className='container'>
-                <Callbacks.Provider value={{openAddChannelScreen, removeStream, toggleStreamAudio}}>
+                <Callbacks.Provider value={{openAddChannelScreen, removeStream}}>
                     <SideBar channels={channels}/>
                 </Callbacks.Provider>
 
@@ -111,12 +122,9 @@ function App() {
 export default App;
 export { Callbacks };
 
-// Better number for width
-// mute and remove button
-// Toggle controls
-// "Channel don't exist" in AddChannelScreen
-// Max channels?
-// Css design
-// Comments
-// Update readme
+
+// Todo
 // Deploy
+    // Toggle controls
+    // Max channels ?
+    // Comments

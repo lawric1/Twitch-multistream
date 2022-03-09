@@ -1,9 +1,11 @@
+import React, { memo } from 'react'
+
 export function Stream(props) {
     const prefix = "https://player.twitch.tv/?channel=";
     const name = props.channel.name;
-    const isMuted = props.channel.muted;
+    // const isMuted = props.channel.muted;
     
-    const parameters = "&playsinline=true&parent=localhost&player=popup&controls=false&autoplay=true&muted=false";
+    const parameters = "&playsinline=true&parent=localhost&player=popup";
     const url = prefix + name + parameters;
 
     return (
@@ -20,3 +22,5 @@ export function Stream(props) {
         </>
     );
 }
+
+export default memo(Stream)
