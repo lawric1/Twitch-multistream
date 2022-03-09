@@ -23,6 +23,9 @@ function App() {
 
 
     async function addChannel(channel) {
+        console.log(process.env.REACT_APP_API_TOKEN);
+        console.log(process.env.REACT_APP_API_CLIENTID);
+
         if (!channel) {
             return
         }
