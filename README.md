@@ -1,7 +1,7 @@
 # Twitch Multistream
 
 Web app for watching multiple twitch streams.
-https://twitch-followed.netlify.app/
+https://twitch-multistream.netlify.app/
 
 ## Screenshots
 
