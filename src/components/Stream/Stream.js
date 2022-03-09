@@ -5,7 +5,7 @@ export function Stream(props) {
     const name = props.channel.name;
     // const isMuted = props.channel.muted;
     
-    const parameters = "&playsinline=true&parent=localhost&player=popup";
+    const parameters = "&playsinline=true&parent=localhost&parent=twitch-multistream.netlify.app&player=popup";
     const url = prefix + name + parameters;
 
     return (
